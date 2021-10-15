@@ -10,6 +10,7 @@ if 'ticketSystem' not in st.session_state:
     st.session_state.ticketSystem = Queue()
 
 st.title('A basic queueing system simulator.')
+st.markdown('Source codes can be found [here](https://github.com/juli4nteo/basicqueuesim).')
 
 container_customer = st.container()
 container_officer = st.container()
@@ -25,7 +26,6 @@ with container_customer:
     name = st.text_input('Name:')
     if st.button('Queue Me!'):
         if name != '':
-            # st.session_state.ticketSystem = Queue()
             st.session_state.ticketNo = st.session_state.ticketNo + 1
             st.session_state.ticketSystem.enqueue(name, st.session_state.ticketNo)
             st.write('Greetings {}. Your queue number is #{}. You will be served shortly.'.format(name, st.session_state.ticketNo))
